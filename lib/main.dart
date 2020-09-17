@@ -20,8 +20,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  Future _launchUrl() async {
-    const url = 'https://flutter.dev';
+  Future _launchUrl(String url) async {
+    // const url = 'https://flutter.dev';
     if (await canLaunch(url)) {
       await launch(url);
     } else {
@@ -32,10 +32,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.pink.shade100,
       //AppBar
-      appBar: AppBar(
-        title: Text('IdCard'),
-      ),
+      // appBar: AppBar(
+      //   title: Text('IdCard'),
+      // ),
       //Body
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -87,7 +88,21 @@ class _HomePageState extends State<HomePage> {
                 style: TextStyle(fontSize: 18),
               ),
               onTap: () {
-                _launchUrl();
+                _launchUrl('https://flutter.dev');
+              },
+            ),
+          ),
+          Card(
+            margin: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+            child: ListTile(
+              leading: Icon(FontAwesomeIcons.facebook, color: Colors.blue),
+              title: Text(
+                'Facebook/yasminroussef',
+                style: TextStyle(fontSize: 18),
+              ),
+              onTap: () {
+                _launchUrl(
+                    'https://flutter.dev/docs/get-started/test-drive?tab=terminal');
               },
             ),
           ),
